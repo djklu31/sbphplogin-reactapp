@@ -1,9 +1,13 @@
 <?php
+header('Access-Control-Allow-Origin: *'); 
 //link to existing accounts.xml to sync
 $accounts_xml_path = __DIR__ . '/accounts.xml';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
+$fromreact = $_POST['fromreact'];
+
+error_log("fromreact value" . $fromreact);
 
 function getRemoteIp(){
 	$REMOTE_ADDR = '';
@@ -71,10 +75,13 @@ function createXmlAccounts($accounts_xml_path){
 	return $dom;
 }
 
-function setSession($username, $password){
+function setSession($username, $password, $fromreact){
 	global $accounts_xml_path;
 	// startSession($username);
-	$password = md5($password);
+	if ($fromreact === "false") {
+		$password = md5($password);
+	}
+	 
 	$isValid = false;
 
     $dom = new domdocument();
@@ -108,11 +115,16 @@ function startSession($username){
 	session_start();
 }
 
-$credentialSuccess = setSession($username, $password);
+$credentialSuccess = setSession($username, $password, $fromreact);
 
 if ($credentialSuccess) {
-	echo "login success";
+	if ($fromreact === "false") {
+		$hashedPass = md5($password);
+	} else {
+		$hashedPass = $password;
+	}
+	echo json_encode(['login success', $hashedPass]);
 } else {
-	echo 'login failure';
+	echo json_encode(['login failure', ""]);
 }
 ?>

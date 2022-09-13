@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <accounts>
-  <user name="Administrator" username="administrator" pass="fe01ce2a7fbac8fafaed7c982a04e229" type="admin" lastaccess="2022.08.23 06:44:53" lastaccessip="127.0.0.1" sessionip="127.0.0.1">
+  <user name="Administrator" username="administrator" pass="fe01ce2a7fbac8fafaed7c982a04e229" type="admin" lastaccess="2022.09.14 00:30:29" lastaccessip="127.0.0.1" sessionip="127.0.0.1">
+    <log_display_state encoder_log_autoupdate="0" decoder_log_autoupdate="0"/>
+    <encoder_preview state="0" update_period="3000"/>
+  </user>
+    <user name="Administrator" username="kenny" pass="fe01ce2a7fbac8fafaed7c982a04e229" type="admin" lastaccess="2022.09.14 00:04:05" lastaccessip="127.0.0.1" sessionip="127.0.0.1">
     <log_display_state encoder_log_autoupdate="0" decoder_log_autoupdate="0"/>
     <encoder_preview state="0" update_period="3000"/>
   </user>

@@ -33,29 +33,25 @@
         const username = document.getElementById("username-box").value
         const password = document.getElementById("password-box").value
 
-        let data = {
-            "username": username,
-            "password": password
-        }
-
         let formData = new FormData();
         formData.append("username", username);
         formData.append("password", password);
+        formData.append("fromreact", false);
 
         const response = await fetch("/sbauth/auth.php", {
             method: 'POST', 
             body: formData
         });
         
-        const text = await response.text()
+        let json = await response.text()
+        let [loginStatus, hashedPass] = JSON.parse(json)
 
-        if (text === "login success") {
-            window.location = "http://localhost:3000/"
-        } else if (text === "login failure") {
+        if (loginStatus === "login success") {
+            window.location = `http://localhost:3000?user=${username}&pass=${hashedPass}`
+        } else if (loginStatus === "login failure") {
             document.getElementById("invalid-pass-div").innerHTML = "Username or password is incorrect"
         } else {
             document.getElementById("invalid-pass-div").innerHTML = "Something went wrong when authenticating"
         }
-        // return response.json() // parses JSON response into native JavaScript objects
     }
 </script>
