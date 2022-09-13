@@ -1,0 +1,309 @@
+@charset "utf-8";
+@import url("../../common/includes/jquery-ui-1.8.17.custom/css/custom-theme/jquery-ui-1.8.17.custom.css");
+
+
+/* CSS Document */
+html{
+	height:100%;
+}
+
+body {
+	height:100%;
+    margin-left: auto;
+    margin-right: auto;
+	background: #CCCCCC;
+}
+
+#ctn_placeholder{
+	display:none;
+}
+
+#container{
+	min-width: 830px;
+	max-width: 1200px;
+	width: auto;
+    margin-left: auto;
+    margin-right: auto;
+	background-color:#ffffff;
+	/*shadow*/
+	-moz-box-shadow: 0px 3px 3px #999999;
+	-webkit-box-shadow: 0px 3px 3px #999999;
+	box-shadow: 0px 3px 3px #999999;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=180, Color='#999999')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=180, Color='#999999');
+}
+
+/* Header */
+#header{
+	margin: 0px 10px 0px 10px;
+	border: 0px;
+}
+#header #logoContainer{
+	float:left;
+	text-align:left;
+}
+#header #rightHeader{
+	float:right;
+	text-align:right;
+	font-size: 0.8em;
+	padding: 3px 0px 0px 0px;
+}
+#header #rightHeader a{
+	font-size: 0.8em;
+}
+/* End Header */
+
+/* Navigation */
+#header #navigation{
+	width: 100%;
+	background-color:#666666;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+#header #navigation ul{
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+    padding-left: 0;
+	margin-left: 0;
+	/*background-color:#666666;*/
+	color: White;
+	float: left;
+	width: 100%;
+}
+#header #navigation ul li{
+	display: inline;
+}
+#header #navigation ul li a{
+	padding:6px 12px 6px 12px;
+	background-color:#666666;
+	color: White;
+	text-decoration: none;
+	float: left;
+	border-right: 1px solid #fff;
+	font-size: 1em;
+}
+#header #navigation ul li a:hover{
+	color: #ffffff;
+    background-color: #4d85c4;
+}
+#header #navigation ul li a#current{
+	padding:6px 12px 6px 12px;
+	background: url(../images/selected_gradient.gif);
+	background-repeat:repeat-x;
+	color: #000000;
+	text-decoration: none;
+	float: left;
+	border-right: 1px solid #fff;
+	font-size: 1em;
+	cursor: default;
+}
+/* End Navigation  */
+
+/* Content */
+#mainContent {
+	background-color:#666666;
+	padding:10px;
+	font-size: .8em;
+	color: #FFFFFF;
+	position: relative;
+	z-index: 1;
+}
+#wait {
+	position:absolute;
+	z-index:2;
+	display:none;
+	left: 35%;
+	top: 45%;
+	color: black;
+	background-color: white;
+	padding: 2ch;
+	border: 2px solid grey;
+}
+.gray_box_content {
+	padding:10px;
+}
+.gray_box_left_column {
+	float: left;
+	width: 320px;
+}
+.gray_box_right_column {
+	margin: 0 20px 0 335px;
+}
+/* End Content  */
+
+/* Footer */
+#footer{
+	background-color:#666666;
+	padding:10px;
+	color:#ffffff;
+	font-size: .6em;
+}
+#footer a{
+	color:#ffffff;
+	text-decoration:none;
+	font-size:1em;
+}
+#footer a:hover{
+	color:#ffffff;
+	text-decoration:underline;
+}
+/* End Footer */
+
+/* Rounded Corner Box */
+#mainContent .roundedcornr_box {
+   width:450px;
+   margin-left: 10px;
+   margin-right: 10px;
+}
+#mainContent .roundedcornr_top div {
+/*   background: url(../images/tl.gif) no-repeat top left;*/
+   background-color: #e5e5e5;
+}
+#mainContent .roundedcornr_top {
+/*   background: url(../images/tr.gif) no-repeat top right; */
+   background-color: #e5e5e5;
+   border-top-left-radius: 8px;
+   border-top-right-radius: 8px;
+}
+#mainContent .roundedcornr_bottom div {
+   /*background: url(../images/bl.gif) no-repeat bottom left;*/
+}
+#mainContent .roundedcornr_bottom {
+   /*background: url(../images/br.gif) no-repeat bottom right;*/
+   background-color: #e5e5e5;
+   border-bottom-left-radius: 8px;
+   border-bottom-right-radius: 8px;
+}
+
+#mainContent .roundedcornr_top div, .roundedcornr_top,
+#mainContent .roundedcornr_bottom div, .roundedcornr_bottom {
+   width: 100%;
+   height: 10px;
+   font-size: 1px;
+}
+#mainContent .roundedcornr_content {
+	background-color: #e5e5e5;
+	padding: 10px;
+	color: #000000;
+}
+#mainContent .roundedcornr_content .header{ border-bottom: 1px solid #333333;width:100%;margin: 0px; }
+/* End Rounded Corner Box */
+
+/* Rounded Corner Box 2 */
+#mainContent .roundedcornr_box2 {
+   margin-left: 10px;
+   margin-right: 10px;
+}
+/* End Rounded Corner Box 2 */
+
+/* Details Box */
+.detail_box {
+	background-color:#f3f5fb;
+	border: 1px solid #999999;
+	margin: 0px 0px 10px 0px;
+}
+.detail_box a {
+	text-decoration:none;
+	font-size:1em;
+	color:#4D85C4;
+	font-weight:bold;
+}
+.detail_box a:hover {
+	text-decoration:underline;
+}
+.detail_box .detail_box_header {
+	height:19px;
+	background: url(../images/silver_gradient.gif);
+	background-repeat:repeat-x;
+	border-bottom: 1px solid #999999;
+	margin: 0px;
+	padding: 3px 0px 2px 5px;
+	font-size:1.2em;
+}
+.detail_box .detail_box_content {
+	padding: 5px;
+}
+/* End Details Box */
+
+
+#leftbox { float: left; }
+
+#rightbox { float: left; }
+
+/* Browse Box */
+.browsebox {
+	padding: 15px;
+	background-color:#ffffff;
+	min-width: 550px;
+	max-width: 1200px;
+	height: auto;
+	overflow: auto;
+}
+
+.browsebox a:link { text-decoration: none; }
+.browsebox a:active { text-decoration: none; }
+.browsebox a:visited { text-decoration: none; }
+#browsebox.browsebox a:hover { font-weight: bold; }
+
+.ui-dialog-form p, .ui-dialog-form ul, .ui-dialog-form ol {
+	margin:0;
+	padding:.5em 0 .5em 0;
+	font-size: 13px;
+}
+.ui-dialog-form ul, .ui-dialog ol {
+	padding:0 0 1.25em 2.5em;
+}
+
+.ui-dialog .ui-dialog-buttonpane{
+	padding: .2em 1em .2em .4em !important;
+	background-color: #F8F8F8 !important;
+}
+.ui-dialog .ui-dialog-titlebar{
+	padding: .4em .1em .4em .9em !important;
+	font-size: 13px;
+}
+
+.ui-dialog-logo .ui-dialog-titlebar{
+	padding: .1em .9em .4em !important;
+}
+
+.ui-dialog-logo .ui-dialog-title img{
+	width: 16px;
+	height: 16px;
+	margin-right: 4px;
+	top: 3px;
+	position: relative;
+}
+
+.ui-dialog .caption{
+	max-width: 400px;
+	display: inline-block;
+}
+
+
+.ui-dialog:not(.ui-dialog-form) label{
+	width: auto;
+	font-weight:normal;
+}
+
+.ui-dialog{
+	-moz-box-shadow: 5px 5px 10px #7A7A7A;
+	-webkit-box-shadow: 5px 5px 10px #7A7A7A;
+	box-shadow: 5px 5px 10px #7A7A7A;
+	-ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#7A7A7A');/* For IE 8 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=10, Direction=135, Color='#7A7A7A');/* For IE 5.5 - 7 */
+}
+
+.default_hidden{
+	display:none;
+}
+
+.ui-button-adjustment{
+	display: inline-block;
+	position: relative;
+	top: 1px;
+	border: none;
+	background-color: #ffffff;
+}
