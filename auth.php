@@ -2,7 +2,10 @@
 header('Access-Control-Allow-Origin: *');
 
 //link to existing accounts.xml on remote server
-$accounts_xml_path = __DIR__ . '/accounts.xml';
+
+//local
+//$accounts_xml_path = __DIR__ . '/data/accounts.xml';
+$accounts_xml_path = '../data/accounts.xml';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
