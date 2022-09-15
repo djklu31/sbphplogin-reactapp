@@ -82,7 +82,6 @@ function createXmlAccounts($accounts_xml_path)
 function setSession($username, $password, $fromreact)
 {
 	global $accounts_xml_path;
-	// startSession($username);
 	if ($fromreact === "false") {
 		$password = md5($password);
 	}
@@ -97,28 +96,13 @@ function setSession($username, $password, $fromreact)
 	foreach ($users as $user) {
 		if (strtolower($user->getAttribute('username')) == strtolower($username) && $user->getAttribute('pass') == $password) {
 			$isValid = true;
-			// $_SESSION['auth'] = $isValid;
-			// $_SESSION['name'] = $user->getAttribute('name');
-			// $_SESSION['username'] = $user->getAttribute('username');
-			// $_SESSION['type'] = $user->getAttribute('type');
-			// $_SESSION['bitrate'] = 0; // just to provide initial bitrate value displayed at top (not important)
-			// $_SESSION['buffer'] = 0; // just to provide initial buffer value displayed at top (not important)
 			$now = date('Y.m.d H:i:s', time());
-			// $_SESSION['lastaccess'] = $now;
-			// $_SESSION['sessionip'] = getRemoteIp();
 			$user->setAttribute('lastaccess', $now);
 			$user->setAttribute('sessionip', getRemoteIp());
 			$dom->save($accounts_xml_path);
 		}
 	}
-
 	return $isValid;
-}
-
-function startSession($username)
-{
-	session_name($username);
-	session_start();
 }
 
 $credentialSuccess = setSession($username, $password, $fromreact);
