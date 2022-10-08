@@ -61,10 +61,10 @@
 
             if (loginStatus === "login success") {
                 //TODO: local server endpoint
-                window.location = `http://localhost:3000?user=${username}&token=${token}`
+                // window.location = `http://localhost:3000?user=${username}&token=${token}`
 
                 //TODO: remote server endpoint
-                // window.location = `${location.origin}/sbuiapp?user=${username}&token=${token}`
+                window.location = `${location.origin}/sbuiapp?user=${username}&token=${token}`
             } else if (loginStatus === "login failure") {
                 document.getElementById("invalid-pass-div").textContent = "Username or password is incorrect"
             } else {
