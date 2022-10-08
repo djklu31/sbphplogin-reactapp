@@ -32,6 +32,11 @@
 
 </html>
 <script>
+    window.addEventListener("keypress", (event) => {
+        if (event.keyCode == 13) {
+            authenticate()
+        }
+    })
     async function authenticate() {
         const username = document.getElementById("username-box").value
         const password = document.getElementById("password-box").value
@@ -39,7 +44,7 @@
         let formData = new FormData();
         formData.append("username", username);
         formData.append("password", password);
-        formData.append("fromreact", false);
+        formData.append("fromreact", 0);
 
         const response = await fetch("/sbuiauth/auth.php", {
             method: 'POST',
@@ -47,18 +52,24 @@
         });
 
         let json = await response.text()
-        let [loginStatus, hashedPass] = JSON.parse(json)
-
-        if (loginStatus === "login success") {
-            //TODO: local server endpoint
-            //window.location = `http://localhost:3000?user=${username}&pass=${hashedPass}`
-
-            //TODO: remote server endpoint
-            window.location = `${location.origin}/sbuiapp?user=${username}&pass=${hashedPass}`
-        } else if (loginStatus === "login failure") {
-            document.getElementById("invalid-pass-div").innerHTML = "Username or password is incorrect"
+        if (json.indexOf('Wrote') === 0) {
+            alert('The app was run for the first time and needed to initialize the backend (created accounts db).  Please log in again.')
+            document.getElementById("username-box").value = ""
+            document.getElementById("password-box").value = ""
         } else {
-            document.getElementById("invalid-pass-div").innerHTML = "Something went wrong when authenticating"
+            let [loginStatus, token] = JSON.parse(json)
+
+            if (loginStatus === "login success") {
+                //TODO: local server endpoint
+                window.location = `http://localhost:3000?user=${username}&token=${token}`
+
+                //TODO: remote server endpoint
+                // window.location = `${location.origin}/sbuiapp?user=${username}&token=${token}`
+            } else if (loginStatus === "login failure") {
+                document.getElementById("invalid-pass-div").textContent = "Username or password is incorrect"
+            } else {
+                document.getElementById("invalid-pass-div").textContent = "Something went wrong when authenticating"
+            }
         }
     }
 </script>
