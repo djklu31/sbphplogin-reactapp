@@ -7,10 +7,6 @@ $hostName = $_GET['hostName'];
 $emailTitle = $_GET['emailTitle'];
 $sessionID = $_GET['sessionID'];
 
-echo ($emailAddresses);
-echo ($hostName);
-echo ($emailTitle);
-
 use PHPMailer\PHPMailer\PHPMailer;
 
 require './PHPMailer/Exception.php';
@@ -19,7 +15,7 @@ require './PHPMailer/SMTP.php';
 
 $mail = new PHPMailer();
 $mail->IsSMTP();
-$mail->SMTPDebug = 2;
+// $mail->SMTPDebug = 2;
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'ssl';
 $mail->Host = "smtp.gmail.com";
@@ -59,7 +55,7 @@ $hdrs = array(
 if ($mail->send($hdrs))
 //if (mail($subject,$message, $headers))
 {
-    echo "<script> alert('Emails Sent!');window.location = '';</script>";
+    echo "Emails sent successfully to: " . $emailAddresses;
 } else {
     echo "Mailed Error: " . $mail->ErrorInfo;
 }
