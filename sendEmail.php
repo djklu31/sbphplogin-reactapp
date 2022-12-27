@@ -28,6 +28,7 @@ foreach ($emailsArray as $email) {
     $mail->AddAddress($email);
 }
 
+$mail->setFrom('streambox.mail2@gmail.com', 'Streambox Sessions');
 $mail->Subject = "Session Invitation from " . $hostName;
 $mail->Body    = "Session Name:  $emailTitle
 <br>
@@ -37,12 +38,18 @@ https://liveus.streambox.com/ls/launchsession.php?sessionId=$sessionID
 <br>
 <br>
 Streambox Media Players:
-To receive this video stream you will need a Streambox Media Player/Decoder. You can download instructions for various Streambox Players/Decoders here:
+<br>
+To receive this video stream you will need a Streambox Media Player/Decoder. 
+<br>
+You can download instructions for various Streambox Players/Decoders here:
+<br>
 https://streambox-mediaplayer.s3.us-west-2.amazonaws.com/latest/streambox_mediaplayer_sessions.pdf 
 <br>
 <br>
 If you have any questions, please feel free to contact Streambox at:
+<br>
 Email: support@streambox.com
+<br>
 Phone: +1 206.956.0544, Option 2";
 $text = 'Text version of email';
 $html = '<html><body>HTML version of email</body></html>';
