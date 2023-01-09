@@ -28,6 +28,9 @@
         </div>
     </div>
     <!-- </form> -->
+    <footer>
+        Powered by Streambox, Inc. All rights reserved Version 1.07
+    </footer>
 </body>
 
 </html>

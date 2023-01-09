@@ -3,6 +3,7 @@ header('Access-Control-Allow-Origin: *');
 
 $accounts_xml_path = "../data/accounts.xml";
 $sessions_xml_path = "../data/sessions.xml";
+$default_template_xml_path = "../data/defaultTemplate.xml";
 $fromreact = 0;
 $islogout = 0;
 
@@ -45,6 +46,22 @@ function createXmlSessions($sessions_xml_path)
 	// $root->appendChild($session);
 
 	echo 'Wrote: ' . $dom->save($sessions_xml_path) . ' bytes';
+	return $dom;
+}
+
+function createDefaultSessionXml($default_template_xml_path)
+{
+	$dom = new domdocument('1.0', 'UTF-8');
+	$dom->formatOutput = true;
+	$root = $dom->createElement('defaultTemplate');
+	$dom->appendChild($root);
+
+	$template = $dom->createElement('template');
+	$template->setAttribute('name', 'Dark Prod Template (Default - Read-only)');
+
+	$root->appendChild($template);
+
+	echo 'Wrote: ' . $dom->save($default_template_xml_path) . ' bytes';
 	return $dom;
 }
 
@@ -162,6 +179,7 @@ function validateUser($username, $password)
 {
 	global $accounts_xml_path;
 	global $sessions_xml_path;
+	global $default_template_xml_path;
 	$password = md5($password);
 	$isValid = false;
 
@@ -187,6 +205,11 @@ function validateUser($username, $password)
 	if (!$sessionDom->load($sessions_xml_path)) {
 		$sessionDom = createXmlSessions($sessions_xml_path);
 	}
+
+	if (!$sessionDom->load($default_template_xml_path)) {
+		$templateDom = createDefaultSessionXml($default_template_xml_path);
+	}
+
 	$users = $dom->getElementsByTagName('user');
 	foreach ($users as $user) {
 		if (strtolower($user->getAttribute('username')) == strtolower($username) && $user->getAttribute('pass') == $password) {
