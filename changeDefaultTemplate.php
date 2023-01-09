@@ -11,7 +11,8 @@ function overwriteDefaultTemplate($default_template_xml_path, $template_name)
     $template = $dom->getElementsByTagName('template');
     $template[0]->setAttribute('name', $template_name);
 
-    $dom->save($default_template_xml_path);
+    echo 'Wrote: ' . $dom->save($default_template_xml_path) . ' bytes';
+    return $dom;
 }
 
 overwriteDefaultTemplate($default_template_xml_path, $template_name);
