@@ -10,9 +10,7 @@ function overwriteDefaultTemplate($default_template_xml_path, $template_name)
     $dom->load($default_template_xml_path);
     $template = $dom->getElementsByTagName('template');
     $template[0]->setAttribute('name', $template_name);
-
-    echo 'Wrote: ' . $dom->save($default_template_xml_path) . ' bytes';
-    return $dom;
+    $dom->save($default_template_xml_path);
 }
 
 overwriteDefaultTemplate($default_template_xml_path, $template_name);
