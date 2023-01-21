@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accounts>
+  <user name="Administrator" username="administrator" pass="fe01ce2a7fbac8fafaed7c982a04e229" type="admin" lastaccess="2023.01.20 13:18:34" lastaccessip="127.0.0.1" sessionip="127.0.0.1">
+    <log_display_state encoder_log_autoupdate="0" decoder_log_autoupdate="0"/>
+    <encoder_preview state="0" update_period="3000"/>
+  </user>
+  <user name="Guest" username="guest" pass="fe01ce2a7fbac8fafaed7c982a04e229" type="guest" lastaccess="n/a" lastaccessip="127.0.0.1">
+    <log_display_state encoder_log_autoupdate="0" decoder_log_autoupdate="0"/>
+    <encoder_preview state="0" update_period="3000"/>
+  </user>
+</accounts>
