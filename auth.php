@@ -57,7 +57,7 @@ function createDefaultSessionXml($default_template_xml_path)
 	$dom->appendChild($root);
 
 	$template = $dom->createElement('template');
-	$template->setAttribute('name', 'Dark Prod Template (Default - Read-only)');
+	$template->setAttribute('name', 'Dark Prod Template (Read-only)');
 
 	$root->appendChild($template);
 
